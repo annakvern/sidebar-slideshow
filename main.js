@@ -11,7 +11,9 @@ function setupEventListeners() {
   const sidebarItems = document.querySelectorAll(".sidebarItem");
   for (item of sidebarItems) {
     item.addEventListener("click", showSelected);
+    item.addEventListener("click", collapseSidebar);
   }
+  burgerMenu.addEventListener("click", expandSidebar);
 }
 
 function changeImage() {
@@ -34,6 +36,39 @@ function showSelected(clickedItem) {
 
   // Add "selected" class to the clicked item
   clickedItem.currentTarget.classList.add("selected");
+}
+
+function collapseSidebar() {
+  sidebar.style.width = "3.5rem";
+  profile.style.display = "none";
+
+  const sidebarItems = document.querySelectorAll(".sidebarItem");
+  for (let item of sidebarItems) {
+    item.style.width = "3.4rem";
+    // Select the span within each sidebarItem and hide it
+    const spanToHide = item.querySelector("span");
+    if (spanToHide) {
+      spanToHide.style.display = "none";
+    }
+  }
+  settings.style.display = "none";
+}
+
+function expandSidebar() {
+  sidebar.style.display = "block";
+  sidebar.style.width = "10rem";
+  profile.style.display = "block";
+
+  const sidebarItems = document.querySelectorAll(".sidebarItem");
+  for (let item of sidebarItems) {
+    item.style.width = "9.9rem";
+    // Select the span within each sidebarItem and hide it
+    const spanToShow = item.querySelector("span");
+    if (spanToShow) {
+      spanToShow.style.display = "block";
+    }
+  }
+  settings.style.display = "block";
 }
 
 // När bildslidern är på plats är det dags att skapa sidebaren som ska

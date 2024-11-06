@@ -17,7 +17,20 @@
   opacity: 1;
 }
 
-.sidebar {
+#burgerMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+}
+
+#burgerMenu i {
+  font-size: 1.5rem;
+  color: rgb(181, 16, 16);
+  text-shadow: 2px #ffffff;
+}
+
+#sidebar {
   background-color: #222;
   opacity: 0.8;
   position: fixed;
@@ -79,4 +92,14 @@ span {
   font-size: 1rem;
   font-weight: 300;
   padding: 1rem;
+}
+
+@media only screen and (max-width: 600px) {
+  #sidebar {
+    display: none;
+  }
+
+  #burgerMenu {
+    display: block;
+  }
 }
